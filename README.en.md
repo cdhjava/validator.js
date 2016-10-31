@@ -50,7 +50,7 @@ Or
 
 #### Node.js
 ```bash
-npm install js-validator --save
+npm install js-validator-ext --save
 ```
 ```javascript
 var validator = require('js-validator');

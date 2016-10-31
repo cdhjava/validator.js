@@ -1,6 +1,6 @@
 {
   "name": "js-validator-ext",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "./src/validator.js",
   "filename": "./dist/validator.min.js",
   "description": "A laravel-styled JavaScript Object/Form/JSON validation library.",
