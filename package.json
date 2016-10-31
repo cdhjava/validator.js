@@ -1,5 +1,5 @@
 {
-  "name": "js-validator",
+  "name": "js-validator-ext",
   "version": "2.0.0",
   "main": "./src/validator.js",
   "filename": "./dist/validator.min.js",
