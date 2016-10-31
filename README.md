@@ -50,7 +50,7 @@ console.log(Validator.validate(example, rules));
 npm install js-validator-ext --save
 ```
 ```javascript
-var validator = require('js-validator');
+var validator = require('js-validator-ext');
 ```
 
 #### RequireJS
