@@ -80,7 +80,21 @@
     trim: function (str) {
       return str.replace(/(^\s*)|(\s*$)/g, '');
     },
-
+    // author: hlmcdh@163.com
+    // get the string byte length, english and number is one byte while chinese two
+    getStrLength: function (str) {
+      var len = 0;
+      for (var i = 0; i < str.length; i++) {
+        var c = str.charCodeAt(i);
+        //single byte add one
+        if ((c >= 0x0001 && c <= 0x007e) || (0xff60 <= c && c <= 0xff9f)) {
+          len++;
+        } else {
+          len += 2;
+        }
+      }
+      return len;
+    }
   };
 
 
@@ -218,7 +232,8 @@
       max = Number(max);
       switch(Utils.typeof(value)) {
         case 'string':
-          res = (value.localeCompare(min) >= 0) && (value.localeCompare(max) <= 0);
+          res = (Utils.getStrLength(value) >= min) && (Utils.getStrLength(value) <= max);
+          // res = (value.localeCompare(min) >= 0) && (value.localeCompare(max) <= 0);
           break;
         case 'number':
           res = (value >= min) && (value <= max);
@@ -312,7 +327,8 @@
       max = Number(max);
       switch(Utils.typeof(value)) {
         case 'string':
-          res = value.localeCompare(max) <= 0;
+          res = Utils.getStrLength(value) <= max;
+          // res = value.localeCompare(max) <= 0;
           break;
         case 'number':
           res = value <= max;
@@ -359,7 +375,8 @@
       min = Number(min);
       switch(Utils.typeof(value)) {
         case 'string':
-          res = value.localeCompare(min) >= 0;
+          res = Utils.getStrLength(value) <= max;
+          // res = value.localeCompare(min) >= 0;
           break;
         case 'number':
           res = value >= min;
